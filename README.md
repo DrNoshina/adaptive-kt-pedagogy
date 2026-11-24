@@ -23,6 +23,11 @@ The framework predicts whether a learner will answer the next question correctly
 
 In the code, `v3` is the internal name of the final proposed model. `v1` and `v2` are earlier versions, and the final model imports them.
 
+## Requirements and final model
+
+- Python 3.10-3.13 (not 3.14).
+- Reported Proposed model: `src/adaptive_kt/models/behavior_aware_kt_v3.py` + `sequence_v3.py`, run via `scripts/run_trackB_proposed_v3.py` (results in `results/ednet_kt3_trackB_v3/`). The v1 and v2 files are earlier iterations kept for reference only.
+
 ## Setup
 
 ```bash
@@ -49,9 +54,11 @@ The model and design choices were made on validation learners only. The test lea
 | Step | EdNet-KT3 | ASSISTments 2017 |
 |---|---|---|
 | 1. Prepare data and features | `python scripts/prepare_ednet_kt3.py --config configs/ednet_kt3_trackB.yaml` | `python scripts/kt_a17.py data` |
-| 2. Validation-only design selection, 3 seeds, ablation, baselines, bootstrap | `python kaggle/kt3_cell.py` | `python kaggle/assist17_cell.py` |
+| 2. Validation-only design selection, 3 seeds, ablation, baselines, bootstrap | `python kaggle/kt3_cell.py` | `python scripts/kt_a17_run.py scripts/kt_a17.py table` (stages: `data`, `table`, `checks`) |
 | 3. Pedagogical recommender and SHAP | `python scripts/kt_pedagogy.py final` | `KT_PED_PREFIX=assist2017 python scripts/kt_pedagogy.py final` |
-| 4. Tables and figures | `python scripts/make_tables.py results/kt3_final results/assist2017 paper_tables` and `python scripts/kt_figures_clean.py` | same |
+| 4. Tables and figures | `python paper/make_tables.py results/kt3_final results/assist2017 paper/tables` and `python scripts/kt_figures.py` | same |
+
+Note: `scripts/kt_figures.py` reads the full results folder (set `KT_PROJECT`); the finished figures are already in `figures/`. The EdNet-KT3 step 2 script is `kaggle/kt3_cell.py` (set `KT_LAB=1` on a local machine).
 
 Seeds: 42, 52 and 62. The split file in `results/ednet_kt3_trackB/` fixes which learner belongs to training, validation and test.
 
@@ -65,7 +72,7 @@ Seeds: 42, 52 and 62. The split file in `results/ednet_kt3_trackB/` fixes which 
 | AKT | 0.7566 | 0.7747 |
 | DKT | 0.7489 | 0.7943 |
 
-All AUC gains of the proposed model are significant at p ≤ 0.001 (paired learner-level bootstrap, 1,000 resamples). The complete tables are in `results/`.
+Proposed is the mean of 3 seeds. All baselines, including HGAKT, are single-seed (seed 42). On EdNet-KT3 the paired learner-level bootstrap (1,000 resamples, seed 42) gives p <= 0.001 for every comparison (`results/kt3_final/kt3_beats.csv`). ASSISTments significance is in `results/assist2017/assist2017_significance.csv`. The complete tables are in `results/`.
 
 ## Note on exact reproducibility
 
