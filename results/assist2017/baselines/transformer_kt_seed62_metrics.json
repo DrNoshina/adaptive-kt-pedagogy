@@ -1,0 +1,25 @@
+{
+  "model": "transformer_kt",
+  "seed": 62,
+  "split": "frozen learner-disjoint 70/10/20 (results/ednet_kt3_trackB/split_assignments.csv)",
+  "decision_threshold": 0.319,
+  "best_epoch": 5,
+  "validation": {
+    "accuracy": 0.6311907838070628,
+    "precision": 0.49478284836791747,
+    "recall": 0.7452038547071905,
+    "f1": 0.5947065156946959,
+    "rmse": 0.44000299245133984,
+    "threshold": 0.319,
+    "auc": 0.7310691590028809
+  },
+  "test": {
+    "accuracy": 0.631849553529153,
+    "precision": 0.5050205385668645,
+    "recall": 0.7585317874280946,
+    "f1": 0.6063447059944725,
+    "rmse": 0.4410847982146628,
+    "threshold": 0.319,
+    "auc": 0.734760180135902
+  }
+}

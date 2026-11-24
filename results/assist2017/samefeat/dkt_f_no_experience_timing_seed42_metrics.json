@@ -1,0 +1,28 @@
+{
+  "model": "dkt_f",
+  "dropped_groups": [
+    "experience",
+    "timing"
+  ],
+  "seed": 42,
+  "best_epoch": 5,
+  "decision_threshold": 0.36,
+  "validation": {
+    "accuracy": 0.7592054263565892,
+    "precision": 0.6387260648690894,
+    "recall": 0.7754484803558191,
+    "f1": 0.7004781100590607,
+    "rmse": 0.38791396798788697,
+    "threshold": 0.36,
+    "auc": 0.8485074332304994
+  },
+  "test": {
+    "accuracy": 0.7576802455450398,
+    "precision": 0.6444069165534712,
+    "recall": 0.7847605138445948,
+    "f1": 0.7076918941801786,
+    "rmse": 0.38936207888669017,
+    "threshold": 0.36,
+    "auc": 0.8483245334162356
+  }
+}

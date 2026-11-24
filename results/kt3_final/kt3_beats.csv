@@ -1,0 +1,11 @@
+compared_with,auc_gain,significant_seed42,p_value,better_on,not_better_on
+Same inputs as Proposed + XGBoost,0.012704479445020955,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+"HGAKT (base paper, our adaptation)",0.015503236403175413,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+AKT,0.017676243069658315,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+SAKT,0.022401520962358146,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+DKT,0.02530549981289487,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+Transformer-KT,0.02639189651851126,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+SAINT+,0.02758559307456454,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+XGBoost,0.14929576919983323,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+Random Forest,0.15195850348857276,yes,0.001,"auc, accuracy, precision, f1, rmse",recall
+Logistic Regression,0.15879526164441637,yes,0.001,"auc, accuracy, precision, f1, rmse",recall

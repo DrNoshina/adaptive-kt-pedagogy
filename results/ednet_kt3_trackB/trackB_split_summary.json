@@ -1,0 +1,17 @@
+{
+  "train": {
+    "users": 207690,
+    "interactions": 12550681,
+    "positive_rate": 0.6485938890487297
+  },
+  "validation": {
+    "users": 29670,
+    "interactions": 1722427,
+    "positive_rate": 0.6460035751878018
+  },
+  "test": {
+    "users": 59340,
+    "interactions": 3615799,
+    "positive_rate": 0.6495535288327697
+  }
+}

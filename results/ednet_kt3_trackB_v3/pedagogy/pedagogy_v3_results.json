@@ -1,0 +1,418 @@
+{
+  "kt_model": "EdNet-KT3: v3_seed42, frozen 70/10/20 split",
+  "protocol": "recommenders fit on 80% of the validation learners, early stopping on the other 20%, evaluated on test learners (the KT model was never trained on any of these learners; validation learners were used only for its early stopping)",
+  "rows": {
+    "validation": 1582414,
+    "test": 3335274
+  },
+  "recommender_fit_rows": {
+    "train": 1282722,
+    "validation": 299692
+  },
+  "methods": {
+    "proposed": "XGBoost trained on the strategies relevant at the next step; inputs: behaviour-aware learner state, KT probability, learner trajectory (previous state and change), rule-based policy strategy as prior",
+    "ablation_combined_target": "same inputs, trained on the current-state policy label plus next-step strategies",
+    "ablation_current_state_only": "same inputs, trained on the policy's current-state strategy only",
+    "ablation_basic_inputs": "trained on next-step strategies with the basic learner state and KT probability only",
+    "baseline_most_often_relevant": "same list for every learner: strategies most often relevant at the next step",
+    "baseline_most_common_labels": "same list for every learner: most common policy labels"
+  },
+  "next_step_relevance_test": {
+    "proposed": {
+      "precision@3": 0.577885736462809,
+      "recall@3": 0.9959830620698839,
+      "ndcg@3": 0.9505327845871357,
+      "hit@3": 0.9999464130868985,
+      "top1_relevance": 0.8829125948731938
+    },
+    "ablation_combined_target": {
+      "precision@3": 0.5776709828489401,
+      "recall@3": 0.9957483655991504,
+      "ndcg@3": 0.9247506321920758,
+      "hit@3": 0.9999458041447041,
+      "top1_relevance": 0.8107739533501563
+    },
+    "ablation_current_state_only": {
+      "precision@3": 0.5703068419121109,
+      "recall@3": 0.9760210235262786,
+      "ndcg@3": 0.8703455252014843,
+      "hit@3": 0.9826168316494052,
+      "top1_relevance": 0.8107739533501563
+    },
+    "ablation_basic_inputs": {
+      "precision@3": 0.5777626286491876,
+      "recall@3": 0.9958124060199213,
+      "ndcg@3": 0.9485548874224162,
+      "hit@3": 0.9999028737200035,
+      "top1_relevance": 0.8781835497919853
+    },
+    "baseline_most_often_relevant": {
+      "precision@3": 0.5702437149046315,
+      "recall@3": 0.975700821422424,
+      "ndcg@3": 0.8799781451451016,
+      "hit@3": 0.9815974624160878,
+      "top1_relevance": 0.7310548949209349
+    },
+    "baseline_most_common_labels": {
+      "precision@3": 0.5702437149046315,
+      "recall@3": 0.975700821422424,
+      "ndcg@3": 0.8301343153501983,
+      "hit@3": 0.9815974624160878,
+      "top1_relevance": 0.7310548949209349
+    },
+    "rows_evaluated": 3284384,
+    "rows_without_next_step": 50890,
+    "mean_relevant_strategies_per_row": 1.7444793300661554,
+    "note": "Relevance comes from the learner state at the next step (rule-based proxy). Not causal evidence."
+  },
+  "next_step_relevance_test_shorter_lists": {
+    "K=1": {
+      "proposed": {
+        "precision@1": 0.8829125948731938,
+        "recall@1": 0.5596876004754621,
+        "ndcg@1": 0.8829125948731938,
+        "hit@1": 0.8829125948731938,
+        "top1_relevance": 0.8829125948731938
+      },
+      "ablation_combined_target": {
+        "precision@1": 0.8107739533501563,
+        "recall@1": 0.4951505873450445,
+        "ndcg@1": 0.8107739533501563,
+        "hit@1": 0.8107739533501563,
+        "top1_relevance": 0.8107739533501563
+      },
+      "ablation_current_state_only": {
+        "precision@1": 0.8107739533501563,
+        "recall@1": 0.4951505873450445,
+        "ndcg@1": 0.8107739533501563,
+        "hit@1": 0.8107739533501563,
+        "top1_relevance": 0.8107739533501563
+      },
+      "ablation_basic_inputs": {
+        "precision@1": 0.8781835497919853,
+        "recall@1": 0.55533625179029,
+        "ndcg@1": 0.8781835497919853,
+        "hit@1": 0.8781835497919853,
+        "top1_relevance": 0.8781835497919853
+      },
+      "baseline_most_often_relevant": {
+        "precision@1": 0.7310548949209349,
+        "recall@1": 0.42196116532049843,
+        "ndcg@1": 0.7310548949209349,
+        "hit@1": 0.7310548949209349,
+        "top1_relevance": 0.7310548949209349
+      },
+      "baseline_most_common_labels": {
+        "precision@1": 0.7310548949209349,
+        "recall@1": 0.42196116532049843,
+        "ndcg@1": 0.7310548949209349,
+        "hit@1": 0.7310548949209349,
+        "top1_relevance": 0.7310548949209349
+      }
+    },
+    "K=2": {
+      "proposed": {
+        "precision@2": 0.7808748916082894,
+        "recall@2": 0.9253963097291099,
+        "ndcg@2": 0.938430781276093,
+        "hit@2": 0.9854703347720608,
+        "top1_relevance": 0.8829125948731938
+      },
+      "ablation_combined_target": {
+        "precision@2": 0.7738594208229002,
+        "recall@2": 0.9177991976577647,
+        "ndcg@2": 0.9079778550931749,
+        "hit@2": 0.9835381611894346,
+        "top1_relevance": 0.8107739533501563
+      },
+      "ablation_current_state_only": {
+        "precision@2": 0.5394521468866004,
+        "recall@2": 0.6178643646215952,
+        "ndcg@2": 0.6945870270459784,
+        "hit@2": 0.8496954071143934,
+        "top1_relevance": 0.8107739533501563
+      },
+      "ablation_basic_inputs": {
+        "precision@2": 0.779885512778043,
+        "recall@2": 0.9236655437772602,
+        "ndcg@2": 0.9356747656279292,
+        "hit@2": 0.9840210523495425,
+        "top1_relevance": 0.8781835497919853
+      },
+      "baseline_most_often_relevant": {
+        "precision@2": 0.7334667627171488,
+        "recall@2": 0.8727842623355451,
+        "ndcg@2": 0.8463778346817509,
+        "hit@2": 0.9697681513489288,
+        "top1_relevance": 0.7310548949209349
+      },
+      "baseline_most_common_labels": {
+        "precision@2": 0.487426257100266,
+        "recall@2": 0.5248777244073775,
+        "ndcg@2": 0.607155664487268,
+        "hit@2": 0.7715151456102575,
+        "top1_relevance": 0.7310548949209349
+      }
+    }
+  },
+  "next_step_relevance_heldout_validation_learners": {
+    "proposed": {
+      "precision@3": 0.5781838670042698,
+      "recall@3": 0.9963184964440795,
+      "ndcg@3": 0.9513323456302062,
+      "hit@3": 0.9999422997291482,
+      "top1_relevance": 0.8839986966527055
+    },
+    "ablation_combined_target": {
+      "precision@3": 0.577963248321601,
+      "recall@3": 0.9960786443377931,
+      "ndcg@3": 0.9260138053255077,
+      "hit@3": 0.9999422997291482,
+      "top1_relevance": 0.8129866339019638
+    },
+    "ablation_current_state_only": {
+      "precision@3": 0.5711998714754751,
+      "recall@3": 0.9777537171419586,
+      "ndcg@3": 0.8718387589874845,
+      "hit@3": 0.9837998004249455,
+      "top1_relevance": 0.8129459042990096
+    },
+    "ablation_basic_inputs": {
+      "precision@3": 0.5781114588212402,
+      "recall@3": 0.9962104498584646,
+      "ndcg@3": 0.9488518440777504,
+      "hit@3": 0.9999117525269324,
+      "top1_relevance": 0.8774649895121273
+    },
+    "baseline_most_often_relevant": {
+      "precision@3": 0.5718232606762472,
+      "recall@3": 0.9775240474364109,
+      "ndcg@3": 0.8850439479365915,
+      "hit@3": 0.9818990856204137,
+      "top1_relevance": 0.7394798829702742
+    },
+    "baseline_most_common_labels": {
+      "precision@3": 0.5718232606762472,
+      "recall@3": 0.9775240474364109,
+      "ndcg@3": 0.8341656195506987,
+      "hit@3": 0.9818990856204137,
+      "top1_relevance": 0.7394798829702742
+    }
+  },
+  "proposed_beats_both_baselines_on_test": [
+    "precision@3",
+    "recall@3",
+    "ndcg@3",
+    "hit@3",
+    "top1_relevance"
+  ],
+  "design_selected_on_validation": "proposed",
+  "proposed_beats_every_ablation_on_test": [
+    "precision@3",
+    "recall@3",
+    "ndcg@3",
+    "hit@3",
+    "top1_relevance"
+  ],
+  "top1_share_by_strategy_test": {
+    "proposed": {
+      "challenge_based_learning": 0.012764168700982289,
+      "example_based_learning": 0.28649130476236734,
+      "practice_heavy_learning": 0.46619258267836466,
+      "remedial_learning": 0.0025850949577156178,
+      "step_by_step_guidance": 0.2319668489005701
+    },
+    "ablation_combined_target": {
+      "challenge_based_learning": 0.018123848295522348,
+      "example_based_learning": 0.5238181330829191,
+      "practice_heavy_learning": 0.20708313619810545,
+      "remedial_learning": 0.013766185326902677,
+      "step_by_step_guidance": 0.23720869709655037
+    },
+    "ablation_current_state_only": {
+      "challenge_based_learning": 0.01812234916831421,
+      "example_based_learning": 0.523819032559244,
+      "practice_heavy_learning": 0.20708403567443034,
+      "remedial_learning": 0.013766485152344306,
+      "step_by_step_guidance": 0.23720809744566712
+    },
+    "ablation_basic_inputs": {
+      "challenge_based_learning": 0.007278862246400146,
+      "example_based_learning": 0.29118087449486907,
+      "practice_heavy_learning": 0.46801282293448754,
+      "remedial_learning": 0.0026630495725388677,
+      "step_by_step_guidance": 0.23086439075170437
+    },
+    "baseline_most_often_relevant": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 0.0
+    },
+    "baseline_most_common_labels": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 0.0
+    },
+    "policy_for_current_state": {
+      "challenge_based_learning": 0.01812234916831421,
+      "example_based_learning": 0.523819032559244,
+      "practice_heavy_learning": 0.20708403567443034,
+      "remedial_learning": 0.013766485152344306,
+      "step_by_step_guidance": 0.23720809744566712
+    }
+  },
+  "share_of_test_rows_where_strategy_is_relevant_next_step": {
+    "challenge_based_learning": 0.020329230686789365,
+    "example_based_learning": 0.7310548949209349,
+    "practice_heavy_learning": 0.7358786305133627,
+    "remedial_learning": 0.013418954665471517,
+    "step_by_step_guidance": 0.24379761927959703
+  },
+  "recall_at_3_by_strategy_test": {
+    "proposed": {
+      "challenge_based_learning": 0.9501714867678114,
+      "example_based_learning": 0.9995431194074296,
+      "practice_heavy_learning": 0.9936853202521568,
+      "remedial_learning": 0.6537789576384635,
+      "step_by_step_guidance": 0.9992519279403042
+    },
+    "ablation_combined_target": {
+      "challenge_based_learning": 0.9485839236771556,
+      "example_based_learning": 0.9994719010105932,
+      "practice_heavy_learning": 0.9929401532867614,
+      "remedial_learning": 0.6557075760669798,
+      "step_by_step_guidance": 0.9990983171500827
+    },
+    "ablation_current_state_only": {
+      "challenge_based_learning": 0.2663062199523731,
+      "example_based_learning": 0.9921222457534469,
+      "practice_heavy_learning": 0.9947722461922424,
+      "remedial_learning": 0.32652644476209924,
+      "step_by_step_guidance": 1.0
+    },
+    "ablation_basic_inputs": {
+      "challenge_based_learning": 0.9435516482199823,
+      "example_based_learning": 0.9997888437006078,
+      "practice_heavy_learning": 0.9937614505806592,
+      "remedial_learning": 0.6273228507249337,
+      "step_by_step_guidance": 0.9987786068875082
+    },
+    "baseline_most_often_relevant": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 1.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 1.0
+    },
+    "baseline_most_common_labels": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 1.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 1.0
+    }
+  },
+  "top1_agreement_with_policy_test": {
+    "proposed": 0.6447473281055769,
+    "ablation_combined_target": 0.9999967019201421,
+    "ablation_current_state_only": 1.0,
+    "ablation_basic_inputs": 0.6521023460141505,
+    "baseline_most_often_relevant": 0.523819032559244,
+    "baseline_most_common_labels": 0.523819032559244,
+    "note": "Agreement with the rule-based policy shows consistency with it, not educational effectiveness."
+  },
+  "explainability": {
+    "proposed": {
+      "fidelity_probability_drop": 0.11223269999027252,
+      "consistency_jaccard": 0.7958500000000001,
+      "top_shap_features": [
+        "recent_accuracy",
+        "policy_step_by_step_guidance",
+        "error_rate",
+        "delta_historical_accuracy",
+        "prev_recent_accuracy",
+        "policy_example_based_learning"
+      ]
+    },
+    "ablation_combined_target": {
+      "fidelity_probability_drop": 0.2209724485874176,
+      "consistency_jaccard": 0.7193999999999999,
+      "top_shap_features": [
+        "recent_accuracy",
+        "policy_step_by_step_guidance",
+        "policy_example_based_learning",
+        "error_rate",
+        "policy_practice_heavy_learning",
+        "prev_recent_accuracy"
+      ]
+    },
+    "ablation_current_state_only": {
+      "fidelity_probability_drop": 0.4648374617099762,
+      "consistency_jaccard": 0.8989,
+      "top_shap_features": [
+        "policy_example_based_learning",
+        "policy_practice_heavy_learning",
+        "policy_step_by_step_guidance",
+        "policy_challenge_based_learning",
+        "policy_remedial_learning",
+        "topic_mastery"
+      ]
+    },
+    "ablation_basic_inputs": {
+      "fidelity_probability_drop": 0.1150389090180397,
+      "consistency_jaccard": 0.86385,
+      "top_shap_features": [
+        "recent_accuracy",
+        "error_rate",
+        "mean_attempt_count",
+        "historical_accuracy",
+        "topic_mastery",
+        "kt_probability"
+      ]
+    },
+    "backend": "shap.TreeExplainer",
+    "sample_rows": 2000,
+    "top_features": 3
+  },
+  "xgboost_best_iteration": {
+    "proposed": 477,
+    "ablation_combined_target": 406,
+    "ablation_current_state_only": 353,
+    "ablation_basic_inputs": 339
+  },
+  "class_balance": {
+    "tau_chosen_on_validation": 0.25,
+    "candidates": [
+      {
+        "tau": 0.0,
+        "validation_ndcg@3": 0.9517263437958995,
+        "validation_macro_recall": 0.6035250091173525
+      },
+      {
+        "tau": 0.25,
+        "validation_ndcg@3": 0.9513323456302062,
+        "validation_macro_recall": 0.6529975501234535
+      },
+      {
+        "tau": 0.5,
+        "validation_ndcg@3": 0.9399771294823973,
+        "validation_macro_recall": 0.7285074833600441
+      },
+      {
+        "tau": 0.75,
+        "validation_ndcg@3": 0.9040682529809743,
+        "validation_macro_recall": 0.7986013893996223
+      },
+      {
+        "tau": 1.0,
+        "validation_ndcg@3": 0.8529378751946675,
+        "validation_macro_recall": 0.8179365415358936
+      }
+    ],
+    "rule": "largest macro recall (K=1..3) on held-out validation learners with NDCG@3 within 0.01 of tau=0; same tau for every learned design"
+  }
+}

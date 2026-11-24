@@ -1,0 +1,33 @@
+{
+  "model": "proposed_behavior_kt_v3_no_recent_accuracy",
+  "seed": 42,
+  "split": "frozen learner-disjoint 70/10/20 (results/ednet_kt3_trackB/split_assignments.csv)",
+  "dropped_groups": [
+    "recent_accuracy"
+  ],
+  "smoke_subset_shards": 0,
+  "best_epoch": 6,
+  "decision_threshold": 0.40800000000000003,
+  "validation": {
+    "accuracy": 0.7218028910259894,
+    "precision": 0.7252317089641391,
+    "recall": 0.9310363325644307,
+    "f1": 0.8153475809993276,
+    "rmse": 0.4230290406561132,
+    "threshold": 0.40800000000000003,
+    "auc": 0.7701545401769091
+  },
+  "v2_trackB_validation_auc": 0.7659315577236128,
+  "validation_auc_delta_vs_v2": 0.004222982453296331,
+  "adopt_rule": "validation AUC >= V2 + 0.002",
+  "adopt": false,
+  "test": {
+    "accuracy": 0.7263906953371747,
+    "precision": 0.7297677808914743,
+    "recall": 0.9323090497737556,
+    "f1": 0.8186975400964126,
+    "rmse": 0.42052171126934573,
+    "threshold": 0.40800000000000003,
+    "auc": 0.7743499499227045
+  }
+}

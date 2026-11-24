@@ -1,0 +1,25 @@
+{
+  "model": "saint_plus",
+  "seed": 52,
+  "split": "frozen learner-disjoint 70/10/20 (results/ednet_kt3_trackB/split_assignments.csv)",
+  "decision_threshold": 0.226,
+  "best_epoch": 12,
+  "validation": {
+    "accuracy": 0.5751184323858742,
+    "precision": 0.45153061224489793,
+    "recall": 0.7924981467753892,
+    "f1": 0.5752876222865568,
+    "rmse": 0.4622378173868524,
+    "threshold": 0.226,
+    "auc": 0.6904348066252302
+  },
+  "test": {
+    "accuracy": 0.5744740111074593,
+    "precision": 0.459935123196908,
+    "recall": 0.7944919674525349,
+    "f1": 0.5826002382331407,
+    "rmse": 0.46445267592407363,
+    "threshold": 0.226,
+    "auc": 0.6903379927048212
+  }
+}

@@ -1,0 +1,74 @@
+seed: 62
+
+dataset:
+  name: ednet_kt3
+  raw_root: data/raw/ednet
+  processed_root: data/processed/ednet_kt3
+  feature_set: ednet_enriched
+  max_users: null
+  workers: 8
+  users_per_shard: 1000
+  min_history: 5
+  recent_window: 10
+  max_response_time_seconds: 1200
+
+split:
+  train: 0.80
+  validation: 0.10
+  test: 0.10
+
+baseline:
+  # Default: use every row belonging to the training/validation learners.
+  # A deterministic training-only cap can be set here only if hardware memory requires it.
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  logistic_regression:
+    max_iter: 1000
+    C: 1.0
+  random_forest:
+    n_estimators: 300
+    max_depth: 18
+    min_samples_leaf: 3
+    n_jobs: -1
+  xgboost:
+    n_estimators: 1500
+    max_depth: 8
+    learning_rate: 0.05
+    subsample: 0.85
+    colsample_bytree: 0.85
+    reg_lambda: 1.0
+    min_child_weight: 2
+    early_stopping_rounds: 50
+
+sequence:
+  max_len: 200
+  batch_size: 256
+  akt_batch_size: 64  # AKT uses O(B*H*T^2) attention memory on 10GB GPUs.
+  epochs: 40
+  patience: 5
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  embedding_dim: 128
+  hidden_dim: 256
+  transformer_heads: 8
+  transformer_layers: 2
+  dropout: 0.1
+  num_workers: 0
+
+pedagogy:
+  top_k: 3
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  n_estimators: 800
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.9
+  early_stopping_rounds: 40
+
+explainability:
+  sample_size: 2000
+  top_features: 3
+
+output:
+  root: results/multiseed_ednet/seed_62

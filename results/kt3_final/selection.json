@@ -1,0 +1,32 @@
+{
+  "backbone": "attention",
+  "validation_auc_attention": 0.7702366378238742,
+  "validation_auc_lstm": 0.7697918809506868,
+  "validation_auc_full": 0.7702366378238742,
+  "validation_auc_without_group": {
+    "profile": 0.769763853575537,
+    "recency": 0.7661421975926317,
+    "experience,timing": 0.770006443883124,
+    "engagement": 0.7701463366010555,
+    "source": 0.7691175478958943,
+    "elo,meta": 0.7660380955249433,
+    "response_time": 0.7693953460648641,
+    "recent_accuracy": 0.7701545401769091
+  },
+  "groups_removed": [],
+  "validation_auc_pruned": null,
+  "final_drops": "",
+  "final_folder": "v3",
+  "final_prefix": "v3",
+  "kept_groups": [
+    "profile",
+    "recency",
+    "experience,timing",
+    "engagement",
+    "source",
+    "elo,meta",
+    "response_time",
+    "recent_accuracy"
+  ],
+  "rule": "backbone and input groups chosen by validation AUC only (seed 42); test used once afterwards"
+}

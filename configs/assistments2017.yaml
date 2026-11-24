@@ -1,0 +1,65 @@
+seed: 42
+dataset:
+  name: assistments_2017
+  raw_root: data/raw/assist2017
+  processed_root: data/processed/assist2017
+  feature_set: ednet_enriched
+  max_users: null
+  workers: 8
+  users_per_shard: 1000
+  min_history: 5
+  recent_window: 10
+  max_response_time_seconds: 1200
+split:
+  train: 0.7
+  validation: 0.1
+  test: 0.2
+baseline:
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  logistic_regression:
+    max_iter: 1000
+    C: 1.0
+  random_forest:
+    n_estimators: 300
+    max_depth: 18
+    min_samples_leaf: 3
+    n_jobs: -1
+  xgboost:
+    n_estimators: 1500
+    max_depth: 8
+    learning_rate: 0.05
+    subsample: 0.85
+    colsample_bytree: 0.85
+    reg_lambda: 1.0
+    min_child_weight: 2
+    early_stopping_rounds: 50
+sequence:
+  max_len: 200
+  batch_size: 32
+  akt_batch_size: 32
+  epochs: 200
+  patience: 10
+  learning_rate: 0.001
+  weight_decay: 1.0e-05
+  embedding_dim: 128
+  hidden_dim: 256
+  transformer_heads: 8
+  transformer_layers: 2
+  dropout: 0.1
+  num_workers: 0
+pedagogy:
+  top_k: 3
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  n_estimators: 800
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.9
+  early_stopping_rounds: 40
+explainability:
+  sample_size: 2000
+  top_features: 3
+output:
+  root: results/assist2017

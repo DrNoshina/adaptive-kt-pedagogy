@@ -1,0 +1,12 @@
+step,option,validation_auc,result
+backbone,attention (V3),0.829464357404587,-
+backbone,LSTM,0.8476246904217344,chosen
+inputs,all inputs,0.8476246904217344,-
+inputs,without learner profile,0.8465074744585204,helped -> kept
+inputs,without recency (same item / skill before),0.8433329684632581,helped -> kept
+inputs,without experience + timing,0.8485074332304994,did not help -> removed
+inputs,without hint (explanation) context,0.8176250652333183,helped -> kept
+inputs,without difficulty-adjusted mastery + skill tags,0.8456963227925982,helped -> kept
+inputs,without response time,0.846658169767843,helped -> kept
+inputs,without recent accuracy,0.8475933132661059,helped -> kept
+inputs,all inputs minus the ones that did not help,0.8485074332304994,chosen

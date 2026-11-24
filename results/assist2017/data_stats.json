@@ -1,0 +1,54 @@
+{
+  "file_rows": 942816,
+  "rows": 942816,
+  "learners": 1709,
+  "problems": 3162,
+  "skills": 102,
+  "correct_rate": 0.37268141397685234,
+  "hint_request_share": 0.3310253538336218,
+  "correct_rate_on_hint_rows": 5.767456167333128e-05,
+  "timestamps_moved_to_keep_order_share": 0.031468494382785185,
+  "problems_with_more_than_one_skill": 697,
+  "median_actions_per_learner": 441.0,
+  "columns_used": {
+    "user": "studentId",
+    "item": "problemId",
+    "skill": "skill",
+    "correct": "correct",
+    "start": "startTime",
+    "taken": "timeTaken",
+    "hint": "hint",
+    "attempt": "attemptCount"
+  },
+  "source": "Hugging Face dataset Lucy9999/assist2017",
+  "matches_published_numbers": {
+    "rows": true,
+    "learners": true,
+    "problems": true,
+    "skills": true
+  },
+  "split": {
+    "train": {
+      "learners": 1196,
+      "interactions": 667855,
+      "correct_rate": 0.3737742474040024
+    },
+    "validation": {
+      "learners": 171,
+      "interactions": 93732,
+      "correct_rate": 0.3628536679042376
+    },
+    "test": {
+      "learners": 342,
+      "interactions": 181229,
+      "correct_rate": 0.3737370950565307
+    }
+  },
+  "feature_rows": 934274,
+  "settings": {
+    "batch_size": 32,
+    "max_epochs": 200,
+    "patience": 10,
+    "everything_else": "same as configs/ednet_kt3_trackB.yaml"
+  }
+}

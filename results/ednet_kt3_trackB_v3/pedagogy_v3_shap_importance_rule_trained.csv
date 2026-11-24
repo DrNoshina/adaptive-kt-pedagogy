@@ -1,0 +1,14 @@
+feature,mean_abs_shap
+topic_mastery,3.2743864
+kt_probability,1.6158067
+recent_accuracy,1.1607636
+mean_attempt_count,1.115133
+historical_accuracy,0.6829825
+error_rate,0.6492792
+adaptive_offer_rate,0.04578778
+mean_lecture_time_s,0.03694208
+mean_response_time,0.036535915
+mean_explanation_time_s,0.03216144
+explanation_rate,0.03093277
+lecture_rate,0.029694876
+review_rate,0.0

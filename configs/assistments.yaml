@@ -1,0 +1,55 @@
+seed: 42
+
+dataset:
+  name: assistments_2009_2010
+  input_file: data/raw/assistments/assistments.csv
+  processed_root: data/processed/assistments
+  feature_set: core
+  encoding: ISO-8859-15
+  min_history: 5
+  recent_window: 10
+  max_response_time_seconds: 1200
+  columns:
+    user_id: user_id
+    item_id: problem_id
+    skill_id: skill_id
+    correct: correct
+    timestamp: order_id
+    response_time_ms: ms_first_response
+    attempt_count: attempt_count
+
+split: {train: 0.80, validation: 0.10, test: 0.10}
+
+baseline:
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  logistic_regression: {max_iter: 1000, C: 1.0}
+  random_forest: {n_estimators: 300, max_depth: 18, min_samples_leaf: 3, n_jobs: -1}
+  xgboost: {n_estimators: 1200, max_depth: 8, learning_rate: 0.05, subsample: 0.85, colsample_bytree: 0.85, reg_lambda: 1.0, min_child_weight: 2, early_stopping_rounds: 50}
+
+sequence:
+  max_len: 100
+  batch_size: 256
+  epochs: 30
+  patience: 5
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  embedding_dim: 128
+  hidden_dim: 256
+  transformer_heads: 8
+  transformer_layers: 2
+  dropout: 0.2
+  num_workers: 0
+
+pedagogy:
+  top_k: 3
+  max_train_rows: 2000000
+  max_validation_rows: 500000
+  n_estimators: 800
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.9
+  colsample_bytree: 0.9
+  early_stopping_rounds: 40
+explainability: {sample_size: 2000, top_features: 3}
+output: {root: results/assistments}

@@ -1,0 +1,25 @@
+{
+  "model": "xgboost",
+  "seed": 52,
+  "split": "frozen learner-disjoint 70/10/20 (results/ednet_kt3_trackB/split_assignments.csv)",
+  "decision_threshold": 0.291,
+  "train_rows_used": 661875,
+  "validation": {
+    "accuracy": 0.5061369509043928,
+    "precision": 0.41013422520829323,
+    "recall": 0.8217642698295033,
+    "f1": 0.5471776343066991,
+    "rmse": 0.46252775011263497,
+    "threshold": 0.291,
+    "auc": 0.6503036228215017
+  },
+  "test": {
+    "accuracy": 0.5002144619789549,
+    "precision": 0.4161781164071359,
+    "recall": 0.8368155941700695,
+    "f1": 0.5558915975745576,
+    "rmse": 0.4661841895310495,
+    "threshold": 0.291,
+    "auc": 0.6477584588255547
+  }
+}

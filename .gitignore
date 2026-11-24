@@ -1,0 +1,30 @@
+# environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+# data (download with the scripts; not redistributed)
+/data/
+# large model files and predictions (too big for GitHub)
+*.pt
+*.pth
+*.ckpt
+*.ubj
+*.npz
+*.npy
+*.parquet
+*.pkl
+checkpoints/
+# archives and logs
+*.zip
+*.tar.gz
+*.log
+nohup.out
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz

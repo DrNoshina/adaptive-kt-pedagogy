@@ -1,0 +1,25 @@
+{
+  "model": "logistic_regression",
+  "seed": 62,
+  "split": "frozen learner-disjoint 70/10/20 (results/ednet_kt3_trackB/split_assignments.csv)",
+  "decision_threshold": 0.242,
+  "train_rows_used": 661875,
+  "validation": {
+    "accuracy": 0.41907838070628767,
+    "precision": 0.377514076406127,
+    "recall": 0.9244477390659748,
+    "f1": 0.5361017969220188,
+    "rmse": 0.46508636471441744,
+    "threshold": 0.242,
+    "auc": 0.6358505623332904
+  },
+  "test": {
+    "accuracy": 0.4143294024587927,
+    "precision": 0.3840285865860128,
+    "recall": 0.9385413251467914,
+    "f1": 0.545039918648175,
+    "rmse": 0.4685761543534368,
+    "threshold": 0.242,
+    "auc": 0.6335243154381894
+  }
+}

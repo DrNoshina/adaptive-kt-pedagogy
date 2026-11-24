@@ -1,0 +1,321 @@
+{
+  "kt_model": "ASSISTments 2017: dkt_f_no_experience_timing_seed42, frozen 70/10/20 split",
+  "protocol": "recommenders fit on 80% of the validation learners, early stopping on the other 20%, evaluated on test learners (the KT model was never trained on any of these learners; validation learners were used only for its early stopping)",
+  "rows": {
+    "validation": 92880,
+    "test": 179519
+  },
+  "recommender_fit_rows": {
+    "train": 76330,
+    "validation": 16550
+  },
+  "methods": {
+    "proposed": "one XGBoost recommender trained on the policy's strategy for the current state plus every strategy relevant at the next step",
+    "ablation_current_state_only": "same model trained on the policy's current-state strategy only",
+    "ablation_next_step_only": "same model trained on next-step relevant strategies only",
+    "baseline_most_often_relevant": "same list for every learner: strategies most often relevant at the next step",
+    "baseline_most_common_labels": "same list for every learner: most common policy labels"
+  },
+  "next_step_relevance_test": {
+    "proposed": {
+      "precision@3": 0.8438397041286922,
+      "recall@3": 0.9690027179827768,
+      "ndcg@3": 0.9421436447794416,
+      "hit@3": 0.9998437299430173,
+      "top1_relevance": 0.8821444716676805
+    },
+    "ablation_current_state_only": {
+      "precision@3": 0.7558801259834316,
+      "recall@3": 0.8708725636288883,
+      "ndcg@3": 0.8450212969083829,
+      "hit@3": 0.9979238406715147,
+      "top1_relevance": 0.8816421750559502
+    },
+    "ablation_next_step_only": {
+      "precision@3": 0.8439066770102561,
+      "recall@3": 0.9691543371452066,
+      "ndcg@3": 0.9733194817629855,
+      "hit@3": 0.9999274460449723,
+      "top1_relevance": 0.9918348895226508
+    },
+    "baseline_most_often_relevant": {
+      "precision@3": 0.7541816192926547,
+      "recall@3": 0.8605410664687247,
+      "ndcg@3": 0.8900441858895171,
+      "hit@3": 0.9850148177500461,
+      "top1_relevance": 0.9655926820964744
+    },
+    "baseline_most_common_labels": {
+      "precision@3": 0.7541816192926547,
+      "recall@3": 0.8605410664687247,
+      "ndcg@3": 0.8510244393997795,
+      "hit@3": 0.9850148177500461,
+      "top1_relevance": 0.9655926820964744
+    },
+    "rows_evaluated": 179177,
+    "rows_without_next_step": 342,
+    "mean_relevant_strategies_per_row": 2.6216199623835648,
+    "note": "Relevance comes from the learner state at the next step (rule-based proxy). Not causal evidence."
+  },
+  "next_step_relevance_test_shorter_lists": {
+    "K=1": {
+      "proposed": {
+        "precision@1": 0.8821444716676805,
+        "recall@1": 0.3514811238793669,
+        "ndcg@1": 0.8821444716676805,
+        "hit@1": 0.8821444716676805,
+        "top1_relevance": 0.8821444716676805
+      },
+      "ablation_current_state_only": {
+        "precision@1": 0.8816421750559502,
+        "recall@1": 0.351164863049759,
+        "ndcg@1": 0.8816421750559502,
+        "hit@1": 0.8816421750559502,
+        "top1_relevance": 0.8816421750559502
+      },
+      "ablation_next_step_only": {
+        "precision@1": 0.9918348895226508,
+        "recall@1": 0.4011424457380133,
+        "ndcg@1": 0.9918348895226508,
+        "hit@1": 0.9918348895226508,
+        "top1_relevance": 0.9918348895226508
+      },
+      "baseline_most_often_relevant": {
+        "precision@1": 0.9655926820964744,
+        "recall@1": 0.3810347682273208,
+        "ndcg@1": 0.9655926820964744,
+        "hit@1": 0.9655926820964744,
+        "top1_relevance": 0.9655926820964744
+      },
+      "baseline_most_common_labels": {
+        "precision@1": 0.9655926820964744,
+        "recall@1": 0.3810347682273208,
+        "ndcg@1": 0.9655926820964744,
+        "hit@1": 0.9655926820964744,
+        "top1_relevance": 0.9655926820964744
+      }
+    },
+    "K=2": {
+      "proposed": {
+        "precision@2": 0.9133259291092048,
+        "recall@2": 0.7177632545843868,
+        "ndcg@2": 0.9188940235928575,
+        "hit@2": 0.9982866104466533,
+        "top1_relevance": 0.8821444716676805
+      },
+      "ablation_current_state_only": {
+        "precision@2": 0.6956501113424156,
+        "recall@2": 0.5372499446543548,
+        "ndcg@2": 0.7494319848273299,
+        "hit@2": 0.994502642638285,
+        "top1_relevance": 0.8816421750559502
+      },
+      "ablation_next_step_only": {
+        "precision@2": 0.9672167744744024,
+        "recall@2": 0.7655046871715306,
+        "ndcg@2": 0.9857374671180289,
+        "hit@2": 0.9985042723117364,
+        "top1_relevance": 0.9918348895226508
+      },
+      "baseline_most_often_relevant": {
+        "precision@2": 0.9443455354202828,
+        "recall@2": 0.7358105858080742,
+        "ndcg@2": 0.9568096239645245,
+        "hit@2": 0.9850148177500461,
+        "top1_relevance": 0.9655926820964744
+      },
+      "baseline_most_common_labels": {
+        "precision@2": 0.6697232345669366,
+        "recall@2": 0.5057652488879711,
+        "ndcg@2": 0.742871155137693,
+        "hit@2": 0.9662679919855786,
+        "top1_relevance": 0.9655926820964744
+      }
+    }
+  },
+  "next_step_relevance_heldout_validation_learners": {
+    "proposed": {
+      "precision@3": 0.8317994671833374,
+      "recall@3": 0.9676071688060063,
+      "ndcg@3": 0.9423988315602185,
+      "hit@3": 0.9995761685638169,
+      "top1_relevance": 0.8875635747154275
+    },
+    "ablation_current_state_only": {
+      "precision@3": 0.7401307822717365,
+      "recall@3": 0.8645253087914749,
+      "ndcg@3": 0.8437463908858172,
+      "hit@3": 0.9979413901671107,
+      "top1_relevance": 0.8866553644950351
+    },
+    "ablation_next_step_only": {
+      "precision@3": 0.8319407443287317,
+      "recall@3": 0.9678190845240978,
+      "ndcg@3": 0.97165491750415,
+      "hit@3": 0.9995761685638169,
+      "top1_relevance": 0.990312424315815
+    },
+    "baseline_most_often_relevant": {
+      "precision@3": 0.7357915556631952,
+      "recall@3": 0.8491866472915152,
+      "ndcg@3": 0.8783985145207133,
+      "hit@3": 0.984136594817147,
+      "top1_relevance": 0.9539234681520949
+    },
+    "baseline_most_common_labels": {
+      "precision@3": 0.7357915556631952,
+      "recall@3": 0.8491866472915152,
+      "ndcg@3": 0.8399255027756561,
+      "hit@3": 0.984136594817147,
+      "top1_relevance": 0.9539234681520949
+    }
+  },
+  "proposed_beats_both_baselines_on_test": [
+    "precision@3",
+    "recall@3",
+    "ndcg@3",
+    "hit@3"
+  ],
+  "top1_share_by_strategy_test": {
+    "proposed": {
+      "challenge_based_learning": 0.0012143561405756494,
+      "example_based_learning": 0.019646945448671172,
+      "practice_heavy_learning": 0.014583414568931422,
+      "remedial_learning": 0.3736094786624257,
+      "step_by_step_guidance": 0.5909458051793961
+    },
+    "ablation_current_state_only": {
+      "challenge_based_learning": 0.0015040190731900245,
+      "example_based_learning": 0.01916788752165509,
+      "practice_heavy_learning": 0.013564023863769295,
+      "remedial_learning": 0.37385457806694555,
+      "step_by_step_guidance": 0.59190949147444
+    },
+    "ablation_next_step_only": {
+      "challenge_based_learning": 0.000763150418618642,
+      "example_based_learning": 0.24434739498326083,
+      "practice_heavy_learning": 0.052991605345395196,
+      "remedial_learning": 6.127485112996396e-05,
+      "step_by_step_guidance": 0.7018365744015954
+    },
+    "baseline_most_often_relevant": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 0.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 1.0
+    },
+    "baseline_most_common_labels": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 0.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 0.0,
+      "step_by_step_guidance": 1.0
+    },
+    "policy_for_current_state": {
+      "challenge_based_learning": 0.0015040190731900245,
+      "example_based_learning": 0.019084330906477865,
+      "practice_heavy_learning": 0.013619728273887443,
+      "remedial_learning": 0.3738657189489692,
+      "step_by_step_guidance": 0.5919262027974754
+    }
+  },
+  "share_of_test_rows_where_strategy_is_relevant_next_step": {
+    "challenge_based_learning": 0.004275102273171222,
+    "example_based_learning": 0.923098388744091,
+    "practice_heavy_learning": 0.3548000022324294,
+    "remedial_learning": 0.3738537870373988,
+    "step_by_step_guidance": 0.9655926820964744
+  },
+  "recall_at_3_by_strategy_test": {
+    "proposed": {
+      "challenge_based_learning": 0.4451697127937337,
+      "example_based_learning": 0.9999818619330343,
+      "practice_heavy_learning": 0.824199333039703,
+      "remedial_learning": 0.9322694294330158,
+      "step_by_step_guidance": 0.9999826601623009
+    },
+    "ablation_current_state_only": {
+      "challenge_based_learning": 0.5848563968668408,
+      "example_based_learning": 0.8915343595448555,
+      "practice_heavy_learning": 0.28964009312275846,
+      "remedial_learning": 0.9998805720598334,
+      "step_by_step_guidance": 1.0
+    },
+    "ablation_next_step_only": {
+      "challenge_based_learning": 0.4725848563968668,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 0.8314509532498584,
+      "remedial_learning": 0.9256113217687278,
+      "step_by_step_guidance": 0.9999653203246017
+    },
+    "baseline_most_often_relevant": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 1.0,
+      "step_by_step_guidance": 1.0
+    },
+    "baseline_most_common_labels": {
+      "challenge_based_learning": 0.0,
+      "example_based_learning": 1.0,
+      "practice_heavy_learning": 0.0,
+      "remedial_learning": 1.0,
+      "step_by_step_guidance": 1.0
+    }
+  },
+  "top1_agreement_with_policy_test": {
+    "proposed": 0.9970309549407027,
+    "ablation_current_state_only": 0.9989026231206725,
+    "ablation_next_step_only": 0.4887894874637225,
+    "baseline_most_often_relevant": 0.5919262027974754,
+    "baseline_most_common_labels": 0.5919262027974754,
+    "note": "Agreement with the rule-based policy shows consistency with it, not educational effectiveness."
+  },
+  "explainability": {
+    "proposed": {
+      "fidelity_probability_drop": 0.1952466368675232,
+      "consistency_jaccard": 0.95,
+      "top_shap_features": [
+        "recent_accuracy",
+        "topic_mastery",
+        "kt_probability",
+        "historical_accuracy",
+        "error_rate",
+        "mean_attempt_count"
+      ]
+    },
+    "ablation_current_state_only": {
+      "fidelity_probability_drop": 0.6189560890197754,
+      "consistency_jaccard": 0.9683999999999999,
+      "top_shap_features": [
+        "topic_mastery",
+        "kt_probability",
+        "mean_attempt_count",
+        "recent_accuracy",
+        "error_rate",
+        "historical_accuracy"
+      ]
+    },
+    "ablation_next_step_only": {
+      "fidelity_probability_drop": 0.04066918045282364,
+      "consistency_jaccard": 0.8733500000000001,
+      "top_shap_features": [
+        "recent_accuracy",
+        "topic_mastery",
+        "kt_probability",
+        "historical_accuracy",
+        "error_rate",
+        "mean_attempt_count"
+      ]
+    },
+    "backend": "shap.TreeExplainer",
+    "sample_rows": 2000,
+    "top_features": 3
+  },
+  "xgboost_best_iteration": {
+    "proposed": 272,
+    "ablation_current_state_only": 253,
+    "ablation_next_step_only": 230
+  }
+}

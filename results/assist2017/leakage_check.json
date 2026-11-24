@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "rows_checked": 90,
+  "learners": 30,
+  "max_input_change_from_own_answer": 0.0,
+  "max_input_change_from_later_rows": 0.0,
+  "change_reached_later_rows": 90
+}
