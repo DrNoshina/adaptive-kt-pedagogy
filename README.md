@@ -16,17 +16,17 @@ The framework predicts whether a learner will answer the next question correctly
 | `src/adaptive_kt/models/` (others) | Baselines: DKT, SAKT, AKT, SAINT+, Transformer-KT, logistic regression, random forest, XGBoost |
 | `configs/` | Experiment settings (EdNet-KT3, ASSISTments 2017, smoke test) |
 | `scripts/` | Data preparation, training, baselines, pedagogy recommender, tables and figures |
-| `kaggle/` | The notebook cells that ran the final experiments (EdNet-KT3, ASSISTments 2017, pedagogy) |
+| `kaggle/kt3_cell.py` | The cell that ran the final EdNet-KT3 experiments (set `KT_LAB=1` locally) |
 | `results/kt3_final/`, `results/assist2017/` | Final tables: main results, significance tests, ablation, model selection, training checks |
 | `results/ednet_kt3_trackB/split_assignments.csv` | Frozen learner-disjoint 70/10/20 split used by every model |
 | `figures/` | Result figures and architecture diagrams used in the paper |
 
-In the code, `v3` is the internal name of the final proposed model. `v1` and `v2` are earlier versions, and the final model imports them.
+In the code, `v3` is the internal name of the final proposed model. `v1` and `v2` are earlier versions that the final model still imports, so keep them.
 
 ## Requirements and final model
 
 - Python 3.10-3.13 (not 3.14).
-- Reported Proposed model: `src/adaptive_kt/models/behavior_aware_kt_v3.py` + `sequence_v3.py`, run via `scripts/run_trackB_proposed_v3.py` (results in `results/ednet_kt3_trackB_v3/`). The v1 and v2 files are earlier iterations kept for reference only.
+- Reported Proposed model: `src/adaptive_kt/models/behavior_aware_kt_v3.py` + `sequence_v3.py`, run via `scripts/run_trackB_proposed_v3.py` (results in `results/ednet_kt3_trackB_v3/`).
 
 ## Setup
 
@@ -45,7 +45,7 @@ bash scripts/smoke_test.sh               # runs in about a minute on synthetic d
 The datasets are not redistributed in this repository. Download them from the official sources:
 
 * **EdNet-KT3:** `bash scripts/download_ednet_primary.sh`, which downloads the official EdNet files.
-* **ASSISTments 2017:** downloaded automatically by `kaggle/assist17_cell.py`. You can also download it from the official ASSISTments data page and place it in `data/raw/assistments2017/`.
+* **ASSISTments 2017:** download it from the official ASSISTments data page, place it in `data/raw/assist2017/`, then run `python scripts/kt_a17_run.py scripts/kt_a17.py data`.
 
 ## Reproducing the results
 
