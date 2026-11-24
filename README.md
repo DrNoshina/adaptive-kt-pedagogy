@@ -71,17 +71,3 @@ All AUC gains of the proposed model are significant at p ≤ 0.001 (paired learn
 
 Seeds are fixed and deterministic cuDNN is enabled (`src/adaptive_kt/utils/reproducibility.py`). Some GPU operations are still not bit-exact across different GPUs, drivers or library versions. A rerun on different hardware can therefore differ in the third or fourth decimal place. For example, the proposed model's test AUC varied by only ±0.0003 across seeds, while its smallest gap to a baseline was 0.0127. The XGBoost, random forest and logistic regression results are deterministic for a fixed seed on CPU.
 
-## Citation
-
-```bibtex
-@article{kalsoom2026explainable,
-  author  = {Kalsoom, Ayesha},
-  title   = {An Explainable Knowledge-Tracing-Based Adaptive Learning Framework for Personalized Pedagogical Recommendation},
-  year    = {2026},
-  note    = {Under review}
-}
-```
-
-## License
-
-Code is released under the MIT License (see `LICENSE`). The datasets keep their original licenses.
